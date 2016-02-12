@@ -1,0 +1,49 @@
+{% if action == 'add' or action == 'edit' %}
+
+{#
+    include the form from an external file to prevent precompilation
+    errors if the form is null
+#}
+{% include '_form.html.twig' %}
+
+{% else %}
+
+<div class="ccm-dashboard-header-buttons">
+    <a href="{{ action('add') }}" class="btn btn-primary">{{ "Add Manufacturer"|trans }}</a>
+</div>
+
+    {% if manufacturers|length > 0 %}
+
+        <div class="ccm-dashboard-content-full">
+            <div class="table-responsive">
+                <table class="ccm-search-results-table">
+                    <thead>
+                        <tr>
+                            <th><span>{{ "Name"|trans }}</span></th>
+                            <th><span>{{ "Home Country"|trans }}</span></th>
+                            <th><span>{{ "Models"|trans }}</span></th>
+                            <th width="100">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for manufacturer in manufacturers %}
+                        <tr id="manufacturerID_{{ manufacturer.manufacturerID}}">
+                            <td>{{ manufacturer.name }}</td>
+                            <td>{{ manufacturer.homeCountry }}</td>
+                            <td><a href="{{ url_to('/dashboard/cars_manager/car_models/' ~ manufacturer.manufacturerID ) }}">{{ "See all"|trans }}</a></td>
+                            <td class="text-right buttons">
+                                {% set btn_extra = {'dialog-title':'hell'} %}
+                                {{ interface_button('Edit'|trans, action('edit', manufacturer.manufacturerID), null, 'btn-small btn-info') }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    {% else %}
+        <p>{{ "No manufacturers available."|trans }}</p>
+    {% endif %}
+
+{% endif %}

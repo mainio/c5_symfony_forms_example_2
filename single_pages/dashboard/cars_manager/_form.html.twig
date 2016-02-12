@@ -1,0 +1,19 @@
+{% if action == 'edit' %}
+    <div class="ccm-dashboard-header-buttons">
+        {{ interface_button("Delete"|trans, action('delete', entryID), 'right', 'btn-danger') }}
+    </div>
+{% endif %}
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+    <div class="ccm-dashboard-form-actions-wrapper">
+        <div class="ccm-dashboard-form-actions">
+            {{ interface_button("Cancel"|trans, action(''), 'left') }}
+            {% if action == 'edit' %}
+                {{ interface_submit("Save Changes"|trans, 'save', 'right', 'submit-button btn btn-success') }}
+            {% else %}
+                {{ interface_submit("Add"|trans, 'save', 'right', 'submit-button btn btn-success') }}
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(form) }}

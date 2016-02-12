@@ -1,0 +1,47 @@
+{% if action == 'add' or action == 'edit' %}
+
+{#
+    include the form from an external file to prevent precompilation
+    errors if the form is null
+#}
+{% include '_form.html.twig' %}
+
+{% else %}
+
+<div class="ccm-dashboard-header-buttons">
+    <a href="{{ action('add') }}" class="btn btn-primary">{{ "Add owner"|trans }}</a>
+</div>
+
+    {% if owners|length > 0 %}
+
+        <div class="ccm-dashboard-content-full">
+            <div class="table-responsive">
+                <table class="ccm-search-results-table">
+                    <thead>
+                        <tr>
+                            <th><span>{{ "Name"|trans }}</span></th>
+                            <th><span>{{ "Cars"|trans }}</span></th>
+                            <th width="100">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for owner in owners %}
+                        <tr id="ownerID_{{ owner.ownerID}}">
+                            <td>{{ owner.name }}</td>
+                            <td><a href="{{ url_to('/dashboard/cars_manager/cars/' ~ owner.ownerID ~ '/owners' ) }}">{{ "See all"|trans }}</a></td>
+                            <td class="text-right buttons">
+                                {% set btn_extra = {'dialog-title':'hell'} %}
+                                {{ interface_button('Edit'|trans, action('edit', owner.ownerID), null, 'btn-small btn-info') }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    {% else %}
+        <p>{{ "No owners available."|trans }}</p>
+    {% endif %}
+
+{% endif %}
