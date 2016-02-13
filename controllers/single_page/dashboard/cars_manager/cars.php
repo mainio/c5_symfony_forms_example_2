@@ -81,7 +81,7 @@ class Cars extends CarManagerDashboardPageController
                 ),
             ))
             ->add('carModel', EntityType::class, array(
-                'class' => 'Application\Src\Entity\CarModel',
+                'class' => 'Concrete\Package\CarsManager\Src\Entity\CarModel',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->orderBy('u.name', 'ASC');
@@ -92,7 +92,7 @@ class Cars extends CarManagerDashboardPageController
                 ),
             ))
             ->add('owner', EntityType::class, array(
-                'class' => 'Application\Src\Entity\Owner',
+                'class' => 'Concrete\Package\CarsManager\Src\Entity\Owner',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->orderBy('u.name', 'ASC');

@@ -3,7 +3,7 @@ namespace Concrete\Package\CarsManager\Src\Page\Controller;
 
 use Request;
 
-use Mainio\C5\Twig\Page\Controller\DashboardPageController;
+use \Mainio\C5\Twig\Page\Controller\DashboardPageController;
 
 class CarManagerDashboardPageController extends DashboardPageController
 {

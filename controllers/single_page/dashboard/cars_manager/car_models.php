@@ -80,7 +80,7 @@ class CarModels extends CarManagerDashboardPageController
                 ),
             ))
             ->add('manufacturer', EntityType::class, array(
-                'class' => 'Application\Src\Entity\Manufacturer',
+                'class' => 'Concrete\Package\CarsManager\Src\Entity\Manufacturer',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->orderBy('u.name', 'ASC');

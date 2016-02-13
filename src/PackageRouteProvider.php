@@ -12,19 +12,19 @@ class PackageRouteProvider
 {
     public static function registerRoutes()
     {
-        Route::register('/cars_manager/manufacturers', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::manufacturers');
-        Route::register('/cars_manager/manufacturers/{mID}', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::manufacturers');
+        Route::register('/cars_manager/manufacturers', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::manufacturers');
+        Route::register('/cars_manager/manufacturers/{mID}', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::manufacturers');
 
-        Route::register('/cars_manager/manufacturers/{mID}/car_models', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::carModels');
-        Route::register('/cars_manager/manufacturers/{mID}/car_models/{cmID}', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::carModels');
+        Route::register('/cars_manager/manufacturers/{mID}/car_models', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::carModels');
+        Route::register('/cars_manager/manufacturers/{mID}/car_models/{cmID}', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::carModels');
 
-        Route::register('/cars_manager/manufacturers/{mID}/car_models/{cmID}/cars', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::carsByCarModels');
-        Route::register('/cars_manager/manufacturers/{mID}/car_models/{cmID}/cars/{cID}', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::carsByCarModels');
+        Route::register('/cars_manager/manufacturers/{mID}/car_models/{cmID}/cars', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::carsByCarModels');
+        Route::register('/cars_manager/manufacturers/{mID}/car_models/{cmID}/cars/{cID}', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::carsByCarModels');
 
-        Route::register('/cars_manager/owners', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::owners');
-        Route::register('/cars_manager/owners/{oID}', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::owners');
+        Route::register('/cars_manager/owners', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::owners');
+        Route::register('/cars_manager/owners/{oID}', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::owners');
 
-        Route::register('/cars_manager/owners/{oID}/cars', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::carsByOwners');
-        Route::register('/cars_manager/owners/{oID}/cars/{cID}', '\Concrete\Package\CarsManagement\Controller\Backend\CarManager::carsByOwners');
+        Route::register('/cars_manager/owners/{oID}/cars', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::carsByOwners');
+        Route::register('/cars_manager/owners/{oID}/cars/{cID}', '\Concrete\Package\CarsManager\Controller\Backend\CarManager::carsByOwners');
     }
 }
