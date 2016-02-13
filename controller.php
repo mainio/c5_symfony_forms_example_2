@@ -73,6 +73,7 @@ class Controller extends Package
     {
         $spt = new TwigServiceProvider(Core::getFacadeApplication(), $pkg);
         $spt->register();
+        Core::make('cars_manager/twig')->clearCacheDirectory();
     }
     protected function loadDependencies()
     {

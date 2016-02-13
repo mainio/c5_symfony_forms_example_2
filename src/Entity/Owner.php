@@ -23,7 +23,7 @@ class Owner implements \JsonSerializable
     protected $name;
 
     /**
-     * @OneToMany(targetEntity="Application\Src\Entity\Car", mappedBy="owner")
+     * @OneToMany(targetEntity="Concrete\Package\CarsManager\Src\Entity\Car", mappedBy="owner")
      **/
     protected $cars;
 

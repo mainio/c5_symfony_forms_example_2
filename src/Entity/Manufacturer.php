@@ -28,7 +28,7 @@ class Manufacturer implements \JsonSerializable
     protected $homeCountry;
 
     /**
-     * @OneToMany(targetEntity="Application\Src\Entity\CarModel", mappedBy="manufacturer")
+     * @OneToMany(targetEntity="Concrete\Package\CarsManager\Src\Entity\CarModel", mappedBy="manufacturer")
      **/
     protected $carModels;
 

@@ -28,13 +28,13 @@ class Car implements \JsonSerializable
     protected $manufacturingYear;
 
     /**
-     * @ManyToOne(targetEntity="Application\Src\Entity\CarModel")
+     * @ManyToOne(targetEntity="Concrete\Package\CarsManager\Src\Entity\CarModel")
      * @JoinColumn(name="carModelID", referencedColumnName="carModelID")
      **/
     protected $carModel;
 
     /**
-     * @ManyToOne(targetEntity="Application\Src\Entity\Owner")
+     * @ManyToOne(targetEntity="Concrete\Package\CarsManager\Src\Entity\Owner")
      * @JoinColumn(name="ownerID", referencedColumnName="ownerID")
      **/
     protected $owner;
