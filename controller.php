@@ -73,7 +73,6 @@ class Controller extends Package
     {
         $spt = new TwigServiceProvider(Core::getFacadeApplication(), $pkg);
         $spt->register();
-        Core::make('cars_manager/twig')->clearCacheDirectory();
     }
     protected function loadDependencies()
     {
@@ -91,6 +90,6 @@ class Controller extends Package
         // works with the 'en' locale which becomes a problem e.g. with the
         // c5's default locale (en_US). The 'Collator' class isn't used
         // anywhere in this add-on, so it is not needed.
-        $loader->addClassMap(array('Collator' => null));
+        // $loader->addClassMap(array('Collator' => null));
     }
 }
