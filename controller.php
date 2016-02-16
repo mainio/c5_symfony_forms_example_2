@@ -20,10 +20,17 @@ class Controller extends Package
     {
         return t("Car Management System Symfony Forms Example");
     }
+
     public function getPackageDescription()
     {
         return t("A more elaborate example of using Symfony forms and validators within the concrete5 package context.");
     }
+
+    public function getPackageEntitiesPath()
+    {
+        return $this->getPackagePath() . '/' . DIRNAME_CLASSES . '/Entity';
+    }
+
     public function on_start()
     {
         $this->loadDependencies();
@@ -31,6 +38,7 @@ class Controller extends Package
         // Register the twig services for the single pages
         $this->registerTwigServices($this);
     }
+
     public function install()
     {
         if (version_compare(phpversion(), '5.4', '<')) {
@@ -51,11 +59,13 @@ class Controller extends Package
         $this->clearTwigCache($pkg);
         $this->installSinglePages($pkg);
     }
+
     public function upgrade()
     {
         parent::upgrade();
         $this->clearTwigCache($this);
     }
+
     protected function installSinglePages(Package $pkg)
     {
         $sp = SinglePage::add('/dashboard/cars_manager', $pkg);
@@ -64,16 +74,19 @@ class Controller extends Package
 		$sp = SinglePage::add('/dashboard/cars_manager/cars', $pkg);
         $sp = SinglePage::add('/dashboard/cars_manager/owners', $pkg);
     }
+
     protected function clearTwigCache(Package $pkg)
     {
         $this->registerTwigServices($pkg);
         Core::make('cars_manager/twig')->clearCacheDirectory();
     }
+
     protected function registerTwigServices(Package $pkg)
     {
         $spt = new TwigServiceProvider(Core::getFacadeApplication(), $pkg);
         $spt->register();
     }
+
     protected function loadDependencies()
     {
         // No other way of managing the composer dependencies currently.
@@ -82,6 +95,7 @@ class Controller extends Package
         $loader = $filesystem->getRequire(dirname(__FILE__) . '/vendor/autoload.php');
         $this->intlFix($loader);
     }
+
     protected function intlFix(\Composer\Autoload\ClassLoader $loader)
     {
         // When defining the load path for the 'Collator' class, it messes up
